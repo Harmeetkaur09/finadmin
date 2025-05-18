@@ -1,14 +1,12 @@
-// src/components/Header/Header.tsx
 import React from 'react';
 import ThemeToggle from './Layout/ThemeToggle';
 
 const Header = ({ onToggleSidebar }: { onToggleSidebar: () => void }) => {
-  const userName = 'John Doe';
+  const userName = 'Aman';
   const goalProgress = 70;
 
   return (
     <header className="flex flex-col md:flex-row items-center justify-between bg-white dark:bg-gray-800 dark:text-white p-4 rounded shadow relative">
-      {/* Hamburger menu - only on small screens */}
       <button
         className="absolute left-4 top-4 md:hidden text-gray-700 dark:text-white"
         onClick={onToggleSidebar}
@@ -36,22 +34,22 @@ const Header = ({ onToggleSidebar }: { onToggleSidebar: () => void }) => {
         />
         <div>
           <h1 className="text-xl font-semibold">Hello, {userName} 👋</h1>
-          <p className="text-sm text-gray-500">Welcome back to your dashboard</p>
+          <p className="text-sm text-[#B0B4B9]">Welcome back to your dashboard</p>
         </div>
       </div>
 
       <div className="w-full md:w-1/3 mt-4 md:mt-0">
-        <p className="text-sm text-gray-600 mb-1">Monthly Savings Goal</p>
+        <p className="text-sm text-text-[#B0B4B9] mb-1">Monthly Savings Goal</p>
         <div className="w-full bg-gray-200 rounded-full h-3">
           <div
             className="bg-green-500 h-3 rounded-full"
             style={{ width: `${goalProgress}%` }}
           ></div>
         </div>
-        <p className="text-xs text-right text-gray-500 mt-1">{goalProgress}% reached</p>
+        <p className="text-xs text-right text-text-[#B0B4B9] mt-1">{goalProgress}% reached</p>
       </div>
 
-      <div className="flex items-center justify-end mt-4 md:mt-0">
+      <div className=" md:flex items-left justify-start mt-4 md:mt-0">
         <ThemeToggle />
       </div>
     </header>

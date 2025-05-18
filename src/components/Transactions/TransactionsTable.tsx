@@ -1,5 +1,3 @@
-// src/components/Transactions/TransactionsTable.tsx
-// ✅ All imports should come first
 import React, { useEffect, useState } from 'react';
 import transactionsData from '../../data/mockData.json'; // ✅ correct
 
@@ -61,7 +59,7 @@ const TransactionsTable = () => {
       <select
   value={filterType}
   onChange={(e) => setFilterType(e.target.value as any)}
-  className="border border-gray-300 dark:border-gray-600 
+  className="border border-gray-300 
              bg-white dark:bg-gray-800 
              text-black dark:text-white 
              rounded px-3 py-1 w-full sm:w-1/4"
@@ -73,49 +71,50 @@ const TransactionsTable = () => {
 
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse">
-          <thead>
-            <tr className="bg-gray-100 dark:bg-gray-800 dark:text-white">
-              <th className="py-2 px-3 border-b text-left">Date</th>
-              <th className="py-2 px-3 border-b text-left">Description</th>
-              <th className="py-2 px-3 border-b text-left">Type</th>
-              <th className="py-2 px-3 border-b text-left">Category</th>
-              <th className="py-2 px-3 border-b text-right">Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.map((t) => (
-              <tr key={t.id} className="border-b">
-                <td className="py-2 px-3">{new Date(t.date).toLocaleDateString()}</td>
-                <td className="py-2 px-3">{t.description}</td>
-                <td
-                  className={`py-2 px-3 font-semibold ${
-                    t.type === 'Credit' ? 'text-green-600' : 'text-red-600'
-                  }`}
-                >
-                  {t.type}
-                </td>
-                <td className="py-2 px-3">{t.category}</td>
-                <td
-                  className={`py-2 px-3 text-right font-semibold ${
-                    t.type === 'Credit' ? 'text-green-600' : 'text-red-600'
-                  }`}
-                >
-                  ${t.amount.toLocaleString()}
-                </td>
-              </tr>
-            ))}
-            {filtered.length === 0 && (
-              <tr>
-                <td colSpan={5} className="py-4 text-center text-gray-500">
-                  No transactions found.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+<div className="overflow-x-auto w-full">
+  <table className="min-w-full border-collapse">
+    <thead>
+      <tr className="bg-gray-100 dark:bg-gray-800 dark:text-white">
+        <th className="py-2 px-3 border-b text-left">Date</th>
+        <th className="py-2 px-3 border-b text-left">Description</th>
+        <th className="py-2 px-3 border-b text-left">Type</th>
+        <th className="py-2 px-3 border-b text-left">Category</th>
+        <th className="py-2 px-3 border-b text-right">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {filtered.map((t) => (
+        <tr key={t.id} className="border-b">
+          <td className="py-2 px-3">{new Date(t.date).toLocaleDateString()}</td>
+          <td className="py-2 px-3">{t.description}</td>
+          <td
+            className={`py-2 px-3 font-semibold ${
+              t.type === 'Credit' ? 'text-green-600' : 'text-red-600'
+            }`}
+          >
+            {t.type}
+          </td>
+          <td className="py-2 px-3">{t.category}</td>
+          <td
+            className={`py-2 px-3 text-right font-semibold ${
+              t.type === 'Credit' ? 'text-green-600' : 'text-red-600'
+            }`}
+          >
+            ${t.amount.toLocaleString()}
+          </td>
+        </tr>
+      ))}
+      {filtered.length === 0 && (
+        <tr>
+          <td colSpan={5} className="py-4 text-center text-gray-500">
+            No transactions found.
+          </td>
+        </tr>
+      )}
+    </tbody>
+  </table>
+</div>
+
     </section>
   );
 };

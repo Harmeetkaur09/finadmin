@@ -47,7 +47,7 @@ const OverviewSection = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card title="Account Balance" value={`$${current.balance.toLocaleString()}`} />
         <Card title="Monthly Income" value={`$${current.income.toLocaleString()}`} />
         <Card title="Monthly Expenses" value={`$${current.expenses.toLocaleString()}`} />

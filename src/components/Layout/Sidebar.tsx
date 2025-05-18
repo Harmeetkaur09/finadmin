@@ -1,4 +1,3 @@
-// src/components/Layout/Sidebar.tsx
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -11,7 +10,6 @@ const links = [
 const Sidebar = ({ show, onClose }: { show: boolean; onClose: () => void }) => {
   return (
     <>
-      {/* Mobile overlay */}
       {show && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"

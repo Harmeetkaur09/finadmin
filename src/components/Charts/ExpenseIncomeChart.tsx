@@ -1,5 +1,4 @@
-// src/components/Charts/ExpenseIncomeChart.tsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   LineChart,
   Line,
@@ -13,7 +12,6 @@ import {
   Area,
 } from 'recharts';
 
-// Mock data for last 6 months
 const data = [
   { month: 'Jan', income: 5000, expenses: 3200 },
   { month: 'Feb', income: 5200, expenses: 2800 },
@@ -24,8 +22,19 @@ const data = [
 ];
 
 const ExpenseIncomeChart = () => {
+      const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const matchDark = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDarkMode(matchDark.matches);
+
+    const listener = (e: MediaQueryListEvent) => setIsDarkMode(e.matches);
+    matchDark.addEventListener('change', listener);
+
+    return () => matchDark.removeEventListener('change', listener);
+  }, []);
   return (
-    <div className="bg-white  dark:bg-gray-800 dark:text-white p-4 rounded shadow">
+    <div className="bg-white dark:bg-gray-800 dark:text-white p-4 rounded shadow">
       <h3 className="text-lg font-semibold mb-4">Expense vs Income</h3>
       <ResponsiveContainer width="100%" height={250}>
         <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
@@ -39,11 +48,35 @@ const ExpenseIncomeChart = () => {
               <stop offset="95%" stopColor="#ef4444" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <XAxis dataKey="month" />
-          <YAxis />
+            <XAxis dataKey="month" tick={{ fill: isDarkMode ? '#B0B4B9' : '#4B5563' }} />
+            <YAxis tick={{ fill: isDarkMode ? '#B0B4B9' : '#4B5563' }} />
+
           <CartesianGrid strokeDasharray="3 3" />
-          <Tooltip />
-          <Legend />
+            <Tooltip
+            content={({ active, payload, label }) => {
+                if (active && payload && payload.length) {
+                return (
+                    <div className=' bg-white dark:bg-gray-800 dark:text-white' style={{padding: '10px', borderRadius: '5px', color: '#B0B4B9' }}>
+                    <p>{label}</p>
+                    {payload.map((entry, index) => (
+                        <p key={`item-${index}`} style={{ color: entry.color }}>
+                        {entry.name}: {entry.value}
+                        </p>
+                    ))}
+                    </div>
+                );
+                }
+                return null;
+            }}
+            />
+            <Legend
+            content={() => (
+                <div style={{ color: '#B0B4B9', display: 'flex', gap: '1rem' }}>
+                <span><span style={{ backgroundColor: '#3b82f6', display: 'inline-block', width: 10, height: 10, marginRight: 5 }}></span>Income</span>
+                <span><span style={{ backgroundColor: '#ef4444', display: 'inline-block', width: 10, height: 10, marginRight: 5 }}></span>Expenses</span>
+                </div>
+            )}
+            />
           <Area
             type="monotone"
             dataKey="income"

@@ -1,4 +1,3 @@
-// src/components/Charts/SpendingPieChart.tsx
 import React, { useState } from 'react';
 import {
   PieChart,
@@ -9,7 +8,6 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
-// Sample category data
 const categoryData = [
   { name: 'Food', value: 400, color: '#f87171' },
   { name: 'Transport', value: 300, color: '#60a5fa' },
@@ -17,7 +15,6 @@ const categoryData = [
   { name: 'Utilities', value: 100, color: '#fbbf24' },
 ];
 
-// Sample subcategory data keyed by category
 const subCategoryData: Record<string, { name: string; value: number }[]> = {
   Food: [
     { name: 'Groceries', value: 250 },
@@ -50,7 +47,6 @@ const SpendingPieChart = () => {
 
   const onPieClick = (entry: any) => {
     if (selectedCategory) {
-      // Clicking subcategory -> go back to main categories
       setSelectedCategory(null);
     } else {
       setSelectedCategory(entry.name);

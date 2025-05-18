@@ -11,15 +11,12 @@ import SpendingCalendar from '../components/Calendar/SpendingCalendar';
 const Dashboard = ({ onToggleSidebar }: { onToggleSidebar: () => void }) => {
   return (
     <div className="space-y-8">
-      {/* <HeaderProfile onToggleSidebar={onToggleSidebar} /> */}
       <OverviewSection />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <ExpenseIncomeChart />
         <SpendingPieChart />
         <BudgetAssistant />
         <SpendingCalendar />
-
-
       </div>
       <Notifications />
     </div>

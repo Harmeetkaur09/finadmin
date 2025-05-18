@@ -1,4 +1,3 @@
-// src/components/Notifications/Notifications.tsx
 import React from 'react';
 
 const alerts = [
