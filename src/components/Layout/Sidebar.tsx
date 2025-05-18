@@ -19,7 +19,7 @@ const Sidebar = ({ show, onClose }: { show: boolean; onClose: () => void }) => {
         />
       )}
       <nav
-        className={`fixed z-50 top-0 left-0 w-64 bg-gray-800 text-white p-6 transform transition-transform md:translate-x-0 ${
+        className={`fixed z-50 top-0 left-0 md:h-full w-64 bg-gray-800 text-white p-6 transform transition-transform md:translate-x-0 ${
           show ? 'translate-x-0' : '-translate-x-full'
         } md:relative md:block`}
       >
