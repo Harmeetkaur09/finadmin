@@ -1,0 +1,84 @@
+{
+  "transactions": [
+    {
+      "id": "1",
+      "date": "2025-05-10",
+      "description": "Salary",
+      "type": "Credit",
+      "category": "Income",
+      "amount": 5000
+    },
+    {
+      "id": "2",
+      "date": "2025-05-11",
+      "description": "Grocery Store",
+      "type": "Debit",
+      "category": "Food",
+      "amount": 120
+    },
+    {
+      "id": "3",
+      "date": "2025-05-12",
+      "description": "Movie Tickets",
+      "type": "Debit",
+      "category": "Entertainment",
+      "amount": 50
+    },
+    {
+      "id": "4",
+      "date": "2025-05-13",
+      "description": "Electricity Bill",
+      "type": "Debit",
+      "category": "Utilities",
+      "amount": 100
+    },
+    {
+      "id": "5",
+      "date": "2025-05-14",
+      "description": "Taxi",
+      "type": "Debit",
+      "category": "Transport",
+      "amount": 30
+    },
+    {
+      "id": "6",
+      "date": "2025-05-15",
+      "description": "Freelance Project",
+      "type": "Credit",
+      "category": "Income",
+      "amount": 800
+    },
+    {
+      "id": "7",
+      "date": "2025-05-16",
+      "description": "Restaurant",
+      "type": "Debit",
+      "category": "Food",
+      "amount": 60
+    },
+    {
+      "id": "8",
+      "date": "2025-05-17",
+      "description": "Bus Ticket",
+      "type": "Debit",
+      "category": "Transport",
+      "amount": 15
+    },
+    {
+      "id": "9",
+      "date": "2025-05-18",
+      "description": "Internet Bill",
+      "type": "Debit",
+      "category": "Utilities",
+      "amount": 80
+    },
+    {
+      "id": "10",
+      "date": "2025-05-19",
+      "description": "Book Purchase",
+      "type": "Debit",
+      "category": "Entertainment",
+      "amount": 25
+    }
+  ]
+}
